@@ -2,15 +2,15 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 
-const Index = () => {
+const about = () => {
   return (
     <Layout>
-      <h1>Hello World</h1>
+      <h1>About Me</h1>
       <p>
-        Contact me at <Link to="/contact">this</Link>
+        <Link to="/contact">Work with me</Link>
       </p>
     </Layout>
   )
 }
 
-export default Index
+export default about
