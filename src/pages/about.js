@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 
-const about = () => {
+const About = () => {
   return (
     <Layout>
       <h1>About Me</h1>
@@ -13,4 +13,4 @@ const about = () => {
   )
 }
 
-export default about
+export default About
