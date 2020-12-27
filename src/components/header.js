@@ -1,23 +1,67 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
-const header = () => {
+// import "../styles/header.module.scss"
+import headerStyles from "../styles/header.module.scss"
+
+const Header = () => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            author
+          }
+        }
+      }
+    `
+  )
+
   return (
-    <header>
-      <h1>Jack Wang</h1>
+    <header className={headerStyles.header}>
+      <h1>
+        <Link className={headerStyles.name} to="/">
+          {data.site.siteMetadata.title}
+        </Link>
+      </h1>
       <nav>
-        <ul>
+        <ul className={headerStyles.nav_list}>
           <li>
-            <Link to="/">Home</Link>
+            <Link
+              className={headerStyles.nav_item}
+              activeClassName={headerStyles.active_nav_item}
+              to="/"
+            >
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/about">About Me</Link>
+            <Link
+              className={headerStyles.nav_item}
+              activeClassName={headerStyles.active_nav_item}
+              to="/about"
+            >
+              About Me
+            </Link>
           </li>
           <li>
-            <Link to="/contact">Contact Me</Link>
+            <Link
+              className={headerStyles.nav_item}
+              activeClassName={headerStyles.active_nav_item}
+              to="/contact"
+            >
+              Contact Me
+            </Link>
           </li>
           <li>
-            <Link to="/blog">My Blog</Link>
+            <Link
+              className={headerStyles.nav_item}
+              activeClassName={headerStyles.active_nav_item}
+              to="/blog"
+            >
+              My Blog
+            </Link>
           </li>
         </ul>
       </nav>
@@ -25,4 +69,4 @@ const header = () => {
   )
 }
 
-export default header
+export default Header

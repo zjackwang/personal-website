@@ -6,15 +6,18 @@ import Footer from "./footer"
 
 // css
 import "../styles/index.scss"
+import layoutStyles from "../styles/layout.module.scss"
 
-const layout = ({ children }) => {
+const Layout = ({ children }) => {
   return (
-    <div>
-      <Header />
-      {children}
+    <div className={layoutStyles.container}>
+      <div className={layoutStyles.content}>
+        <Header />
+        {children}
+      </div>
       <Footer />
     </div>
   )
 }
 
-export default layout
+export default Layout
